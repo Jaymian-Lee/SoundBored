@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "soundboard",
-    "slug": "soundboard",
+    "name": "SoundBored",
+    "slug": "SoundBored",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
