@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
   <Wrapper>
-        <ImageView source={require('../images/iconSB.png')} />
+        <ImageView source={require('../../Images/iconSB.png')} />
         <Title>
       <Text>SoundBored</Text>
       </Title>
