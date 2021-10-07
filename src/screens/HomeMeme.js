@@ -1,31 +1,99 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import AudioSlider from '../components/Audioplayer/Audioslider';
-import BallYaw from '../../assets/sounds/ballsyaw.m4a';
-import gerMAN from '../../assets/sounds/counting.m4a';
+import { ballsyaw, counting } from '../../assets/sounds/sounds';
+
 
 export default HomeMeme = () => {
     return (
-        <View style={styles.container}>
-            <AudioSlider audio={BallYaw}/>
-            
-            <AudioSlider audio={gerMAN}/>
+    <ScrollView style={styles.wrap}>
+        <View style={styles.cards}>
+            <View style={styles.card}>
+                <Text style={styles.text}> BALLS IN YO JAW</Text>
+                <AudioSlider audio={ballsyaw} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> COUNTING</Text>
+                <AudioSlider audio={counting} />
+            </View>
         </View>
+    </ScrollView>
     );
 };
-
+//froggy spelen om dit nicer te maken
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    button: {
-        alignItems: "center",
-        backgroundColor: '#6C63FF',
-        padding: '3%',
-        borderRadius: 16,
-        color: 'white',
+    wrap: {
+        display: 'flex',
+        marginTop: 48,
       },
+    cards: {
+      justifyContent: 'center',
+    },
+    card: {
+        margin: '1%',
+        backgroundColor: '#6C63FF',
+        borderRadius: 16,
+    },
+    text: {
+       color: '#fff',
+       textAlign: 'center',
+        
+    },
 });

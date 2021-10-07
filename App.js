@@ -45,7 +45,7 @@ export default App = () => {
 
     function BookmarkScreen() {
         return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
             
           </View>
         );
@@ -53,7 +53,7 @@ export default App = () => {
       
       function HomeScreen() {
         return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{backgroundColor: '#202020'}}>
             {loading ? <Loading /> : viewedOnboarding ? <HomeMeme/> : <Onboarding />}
             <StatusBar style="auto" />
           </View>
@@ -62,7 +62,7 @@ export default App = () => {
       
       function SettingsScreen() {
         return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
             <Settings/> 
           </View>
         );

@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const standardsStylesObject = {
     backgroundColor: "#6C63FF",
     borderColor: "grey",
-    color: "black",
+    color: "white",
     borderRadius: 5,
     borderWidth: 0.5,
     fontSizeNormal: 17,

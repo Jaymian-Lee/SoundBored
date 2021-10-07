@@ -189,9 +189,9 @@ export default class AudioSlider extends PureComponent {
                         {
                             this.state.playing
                                 ?
-                                <MaterialIcons name="pause" size={15} color="black" />
+                                <MaterialIcons name="pause" size={21} color="white" />
                                 :
-                                <Entypo name="controller-play" size={15} color="black" />
+                                <Entypo name="controller-play" size={21} color="white" />
                         }
                     </TouchableOpacity>
 
@@ -204,7 +204,7 @@ export default class AudioSlider extends PureComponent {
                             alignItems: 'center',
                             height: TRACK_SIZE,
                             borderRadius: TRACK_SIZE / 2,
-                            backgroundColor: 'black',
+                            backgroundColor: 'white',
                         }}
                     >
                         <Animated.View
@@ -232,7 +232,7 @@ export default class AudioSlider extends PureComponent {
                                     width: THUMB_SIZE,
                                     height: THUMB_SIZE,
                                     borderRadius: THUMB_SIZE / 2,
-                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    backgroundColor: 'rgba(255,255,255,0.5)',
                                 }}
                             >
                             </View>
