@@ -14,9 +14,8 @@ export default Settings = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Home Screen</Text>
-            <TouchableOpacity onPress={clearOnboarding}>
-                <Text>Clear Onboarding</Text>
+            <TouchableOpacity style={styles.button} onPress={clearOnboarding}>
+                <Text>CLEAR ONBOARDING</Text>
             </TouchableOpacity>
         </View>
     );
@@ -28,4 +27,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    button: {
+        alignItems: "center",
+        backgroundColor: '#6C63FF',
+        padding: '3%',
+        borderRadius: 16,
+        color: 'white',
+      },
 });

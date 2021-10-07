@@ -8,6 +8,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import Onboarding from './src/components/Onboarding/Onboarding';
 import Settings from './src/screens/Settings';
+import HomeMeme from './src/screens/HomeMeme'
+
 
 
 const Loading = () => {
@@ -40,6 +42,7 @@ export default App = () => {
         checkOnboarding();
     }, []);
 
+
     function BookmarkScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -51,7 +54,7 @@ export default App = () => {
       function HomeScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            
+            {loading ? <Loading /> : viewedOnboarding ? <HomeMeme/> : <Onboarding />}
             <StatusBar style="auto" />
           </View>
         );
@@ -60,7 +63,7 @@ export default App = () => {
       function SettingsScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {loading ? <Loading /> : viewedOnboarding ? <Settings /> : <Onboarding />}
+            <Settings/> 
           </View>
         );
       }
@@ -69,7 +72,7 @@ export default App = () => {
 
     return (
         <NavigationContainer>
-        <Tab.Navigator   
+        <Tab.Navigator  initialRouteName="Home"
         screenOptions={{
           tabBarStyle: { backgroundColor: '#202020' },
         }}
