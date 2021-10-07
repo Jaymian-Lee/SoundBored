@@ -1,10 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
+import AudioSlider from '../components/Audioplayer/Audioslider';
+import BallYaw from '../../assets/sounds/ballsyaw.m4a';
+import gerMAN from '../../assets/sounds/counting.m4a';
+
 export default HomeMeme = () => {
     return (
         <View style={styles.container}>
-            <Text>Pindakaas</Text>
+            <AudioSlider audio={BallYaw}/>
+            
+            <AudioSlider audio={gerMAN}/>
         </View>
     );
 };
