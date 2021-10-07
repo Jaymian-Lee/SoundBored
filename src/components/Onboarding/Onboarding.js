@@ -2,10 +2,10 @@ import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, FlatList, Animated } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import OnboardingItem from '../components/OnboardingItem';
-import Paginator from '../components/Paginator';
-import NextButton from '../components/NextButton';
-import slides from '../slides';
+import OnboardingItem from './OnboardingItem';
+import Paginator from './Paginator';
+import NextButton from './NextButton';
+import slides from './slides';
 
 export default Onboarding = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

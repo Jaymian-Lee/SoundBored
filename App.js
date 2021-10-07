@@ -3,8 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import Onboarding from './components/Onboarding';
-import HomeScreen from './components/HomeScreen';
+import Onboarding from './src/components/Onboarding/Onboarding';
+import HomeScreen from './src/components/HomeScreen';
 
 const Loading = () => {
     return (

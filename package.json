@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@react-native-async-storage/async-storage": "^1.13.3",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
