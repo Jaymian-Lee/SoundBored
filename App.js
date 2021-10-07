@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Onboarding from './src/components/Onboarding/Onboarding';
-import HomeScreen from './src/components/HomeScreen';
+
+import KippenStront from './src/screens/KippenStront';
+
 
 const Loading = () => {
     return (
@@ -36,19 +41,76 @@ export default App = () => {
         checkOnboarding();
     }, []);
 
-    return (
-        <View style={styles.container}>
-            {loading ? <Loading /> : viewedOnboarding ? <HomeScreen /> : <Onboarding />}
+    function BookmarkScreen() {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Settings!</Text>
+          </View>
+        );
+      }
+      
+      function HomeScreen() {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            {loading ? <Loading /> : viewedOnboarding ? <KippenStront /> : <Onboarding />}
             <StatusBar style="auto" />
-        </View>
-    );
-};
+          </View>
+        );
+      }
+      
+      function SettingsScreen() {
+        return (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Settings!</Text>
+          </View>
+        );
+      }
+      
+      const Tab = createBottomTabNavigator();
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+    return (
+        <NavigationContainer>
+        <Tab.Navigator   
+        screenOptions={{
+          tabBarStyle: { backgroundColor: '#202020' },
+        }}
+        tabBarOptions={{
+          activeTintColor: '#6C63FF',
+          inactiveTintColor: '#fff',
+        }}
+      >
+        <Tab.Screen
+          name="Bookmark"
+          component={BookmarkScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="bookmark-multiple-outline" color={color} size={26} />
+            ),
+            headerShown: false
+          }}
+        />
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="radiobox-marked" color={color} size={26} />
+            ),
+            headerShown: false
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ 
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="cog-outline" color={color} size={26} />
+            ),
+            headerShown: false
+          }}
+        />
+      </Tab.Navigator>
+      </NavigationContainer >
+    );
+  }

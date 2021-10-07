@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default HomeScreen = () => {
+export default Kippenstront = () => {
     const clearOnboarding = async () => {
         try {
             await AsyncStorage.removeItem('@viewedOnboarding');
