@@ -7,8 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Onboarding from './src/components/Onboarding/Onboarding';
-
-import KippenStront from './src/screens/KippenStront';
+import Settings from './src/screens/Settings';
 
 
 const Loading = () => {
@@ -44,7 +43,7 @@ export default App = () => {
     function BookmarkScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
+            
           </View>
         );
       }
@@ -52,7 +51,7 @@ export default App = () => {
       function HomeScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {loading ? <Loading /> : viewedOnboarding ? <KippenStront /> : <Onboarding />}
+            
             <StatusBar style="auto" />
           </View>
         );
@@ -61,7 +60,7 @@ export default App = () => {
       function SettingsScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
+            {loading ? <Loading /> : viewedOnboarding ? <Settings /> : <Onboarding />}
           </View>
         );
       }
