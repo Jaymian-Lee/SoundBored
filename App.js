@@ -9,7 +9,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Onboarding from './src/components/Onboarding/Onboarding';
 import Settings from './src/screens/Settings';
 import HomeMeme from './src/screens/HomeMeme'
-
+import Bookmark from './src/screens/Bookmark'
 
 
 const Loading = () => {
@@ -46,7 +46,7 @@ export default App = () => {
     function BookmarkScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-            {loading ? <Loading /> : viewedOnboarding ? <HomeMeme/> : <Onboarding />}
+            {loading ? <Loading /> : viewedOnboarding ? <Bookmark/> : <Onboarding />}
           </View>
         );
       }
