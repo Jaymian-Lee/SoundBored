@@ -10,69 +10,105 @@ import Onboarding from './src/components/Onboarding/Onboarding';
 import Settings from './src/screens/Settings';
 import HomeMeme from './src/screens/HomeMeme'
 import Bookmark from './src/screens/Bookmark'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 const Loading = () => {
-    return (
-        <View>
-            <ActivityIndicator size="large" />
-        </View>
-    );
+  return (
+    <View>
+      <ActivityIndicator size="large" />
+    </View>
+  );
 };
 
 export default App = () => {
-    const [loading, setLoading] = useState(true);
-    const [viewedOnboarding, setViewedOnboarding] = useState(false);
+  // boolean is determined value, undefined is undetermined value
+  const [isOnboarded, setIsOnboarded] = useState(undefined)
 
-    const checkOnboarding = async () => {
-        try {
-            const value = await AsyncStorage.getItem('@viewedOnboarding');
+  // Valid values are: loading, onboarding, main
+  const [userFlow, setUserFlow] = useState('loading')
 
-            if (value !== null) {
-                setViewedOnboarding(true);
-            }
-        } catch (err) {
-            console.log('Error @checkOnboarding: ', err);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const checkOnboarding = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@viewedOnboarding');
 
-    useEffect(() => {
-        checkOnboarding();
-    }, []);
-
-
-    function BookmarkScreen() {
-        return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-            {loading ? <Loading /> : viewedOnboarding ? <Bookmark/> : <Onboarding />}
-          </View>
-        );
+      if (value !== null) {
+        setIsOnboarded(true);
+      } else {
+        setIsOnboarded(false)
       }
-      
-      function HomeScreen() {
-        return (
-          <View style={{backgroundColor: '#202020'}}>
-            <HomeMeme/> 
-            <StatusBar style="auto" />
-          </View>
-        );
-      }
-      
-      function SettingsScreen() {
-        return (
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-            <Settings/> 
-          </View>
-        );
-      }
-      
-      const Tab = createBottomTabNavigator();
+    } catch (err) {
+      setIsOnboarded(false)
+      console.log('Error @checkOnboarding: ', err);
+    }
+  };
 
+  useEffect(() => {
+    checkOnboarding();
+  }, []);
+
+  useEffect(() => {
+    let newUserFlow
+    if (isOnboarded === true) {
+      newUserFlow = 'main'
+    } else if (isOnboarded === false) {
+      newUserFlow = 'onboarding'
+    }
+
+    setUserFlow(newUserFlow || 'loading')
+  }, [isOnboarded])
+
+  const Tab = createBottomTabNavigator();
+
+  const renderLoading = () => null
+
+  const handleComplete = () => {
+    AsyncStorage.setItem('@viewedOnboarding', 'true');
+    setIsOnboarded(true)
+  }
+
+  const OnboardingStack = createNativeStackNavigator()
+
+  const renderOnboarding = () => (
+    <NavigationContainer>
+      <OnboardingStack.Navigator screenOptions={{headerShown: false}}>
+        <OnboardingStack.Screen headerShown='false' name='Onboarding' component={() => (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020' }}>
+            <Onboarding onComplete={handleComplete}/>
+          </View>
+        )}/>
+      </OnboardingStack.Navigator>
+    </NavigationContainer>
+  )
+
+  function BookmarkScreen() {
     return (
-        <NavigationContainer>
-        <Tab.Navigator  initialRouteName="Home"
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
+        <Bookmark />
+      </View>
+    );
+  }
+
+  function HomeScreen() {
+    return (
+      <View style={{ backgroundColor: '#202020' }}>
+        <HomeMeme />
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
+  function SettingsScreen() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
+        <Settings />
+      </View>
+    );
+  }
+
+  const renderMain = () => (
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName="Home"
         screenOptions={{
           tabBarStyle: { backgroundColor: '#202020' },
         }}
@@ -95,7 +131,7 @@ export default App = () => {
           name="Home"
           component={HomeScreen}
           options={{
-            
+
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="radiobox-marked" color={color} size={26} />
             ),
@@ -105,7 +141,7 @@ export default App = () => {
         <Tab.Screen
           name="Settings"
           component={SettingsScreen}
-          options={{ 
+          options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="cog-outline" color={color} size={26} />
             ),
@@ -113,6 +149,15 @@ export default App = () => {
           }}
         />
       </Tab.Navigator>
-      </NavigationContainer >
-    );
+    </NavigationContainer >
+  )
+
+  switch (userFlow) {
+  case 'loading':
+    return renderLoading()
+  case 'onboarding':
+    return renderOnboarding()
+  case 'main':
+    return renderMain()
+  }
 }
