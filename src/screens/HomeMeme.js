@@ -22,7 +22,7 @@ export default HomeMeme = () => {
                 <AudioSlider audio={counting} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> KALAKOLA </Text>
+                <Text style={styles.text}> KAKACOLA </Text>
                 <AudioSlider audio={kakakola} />
             </View>
             <View style={styles.card}>
@@ -38,15 +38,15 @@ export default HomeMeme = () => {
                 <AudioSlider audio={twayx} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> Waste of prinjel </Text>
+                <Text style={styles.text}> WASTE OF PRINJEL </Text>
                 <AudioSlider audio={wasteofprinjel} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> Waste of sus</Text>
+                <Text style={styles.text}> WASTE OF SUS</Text>
                 <AudioSlider audio={wasteofsus} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> WHATSAPPSOUND</Text>
+                <Text style={styles.text}> WHATSAPPSOUND </Text>
                 <AudioSlider audio={whatsappsound} />
             </View>
         </View>
