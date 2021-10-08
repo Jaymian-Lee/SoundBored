@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import AudioSlider from '../components/Audioplayer/Audioslider';
-import { ballsyaw, counting } from '../../assets/sounds/sounds';
+import { ballsyaw, counting, tableisbroken } from '../../assets/sounds/sounds';
 
 
 export default HomeMeme = () => {
@@ -14,60 +14,32 @@ export default HomeMeme = () => {
                 <AudioSlider audio={ballsyaw} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> OH NO THE TABLE IS BROKEN</Text>
+                <AudioSlider audio={tableisbroken} />
             </View>
             <View style={styles.card}>
                 <Text style={styles.text}> COUNTING</Text>
                 <AudioSlider audio={counting} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> BALLS IN YO JAW</Text>
+                <AudioSlider audio={ballsyaw} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> OH NO THE TABLE IS BROKEN</Text>
+                <AudioSlider audio={tableisbroken} />
             </View>
             <View style={styles.card}>
                 <Text style={styles.text}> COUNTING</Text>
                 <AudioSlider audio={counting} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> BALLS IN YO JAW</Text>
+                <AudioSlider audio={ballsyaw} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
-            </View>
-            <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> OH NO THE TABLE IS BROKEN</Text>
+                <AudioSlider audio={tableisbroken} />
             </View>
             <View style={styles.card}>
                 <Text style={styles.text}> COUNTING</Text>

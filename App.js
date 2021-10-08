@@ -46,7 +46,7 @@ export default App = () => {
     function BookmarkScreen() {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-            
+            {loading ? <Loading /> : viewedOnboarding ? <HomeMeme/> : <Onboarding />}
           </View>
         );
       }
@@ -54,7 +54,7 @@ export default App = () => {
       function HomeScreen() {
         return (
           <View style={{backgroundColor: '#202020'}}>
-            {loading ? <Loading /> : viewedOnboarding ? <HomeMeme/> : <Onboarding />}
+            <HomeMeme/> 
             <StatusBar style="auto" />
           </View>
         );
