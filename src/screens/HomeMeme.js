@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import AudioSlider from '../components/Audioplayer/Audioslider';
-import { ballsyaw, counting, tableisbroken } from '../../assets/sounds/sounds';
+import { ballsyaw, counting, tableisbroken, kakakola, salamoon, steaknight, twayx, wasteofprinjel, wasteofsus, whatsappsound, } from '../../assets/sounds/sounds';
 
 
 export default HomeMeme = () => {
@@ -22,28 +22,32 @@ export default HomeMeme = () => {
                 <AudioSlider audio={counting} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> BALLS IN YO JAW</Text>
-                <AudioSlider audio={ballsyaw} />
+                <Text style={styles.text}> KALAKOLA </Text>
+                <AudioSlider audio={kakakola} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> OH NO THE TABLE IS BROKEN</Text>
-                <AudioSlider audio={tableisbroken} />
+                <Text style={styles.text}> WASTE OF SALAMOON </Text>
+                <AudioSlider audio={salamoon} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> STEAKNIGHT BABY</Text>
+                <AudioSlider audio={steaknight} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> BALLS IN YO JAW</Text>
-                <AudioSlider audio={ballsyaw} />
+                <Text style={styles.text}> TWAYX </Text>
+                <AudioSlider audio={twayx} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> OH NO THE TABLE IS BROKEN</Text>
-                <AudioSlider audio={tableisbroken} />
+                <Text style={styles.text}> Waste of prinjel </Text>
+                <AudioSlider audio={wasteofprinjel} />
             </View>
             <View style={styles.card}>
-                <Text style={styles.text}> COUNTING</Text>
-                <AudioSlider audio={counting} />
+                <Text style={styles.text}> Waste of sus</Text>
+                <AudioSlider audio={wasteofsus} />
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.text}> WHATSAPPSOUND</Text>
+                <AudioSlider audio={whatsappsound} />
             </View>
         </View>
     </ScrollView>
