@@ -5,7 +5,7 @@ export default Settings = () => {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button}>
-                <Text>WIP!!!</Text>
+                <Text>In progress</Text>
             </TouchableOpacity>
         </View>
     );
