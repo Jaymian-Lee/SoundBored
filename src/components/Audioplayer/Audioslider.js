@@ -12,8 +12,8 @@ import sleep from "./sleep";
 import DigitalTimeString from "./DigitalTimeString";
 import { width } from "dom-helpers";
 
-const TRACK_SIZE = 4;
-const THUMB_SIZE = 25;
+const TRACK_SIZE = 3;
+const THUMB_SIZE = 20;
 
 export default class AudioSlider extends PureComponent {
   constructor(props) {
@@ -193,11 +193,11 @@ export default class AudioSlider extends PureComponent {
         >
           <TouchableOpacity
             style={{
-              flex: 1,
+              flex: 2,
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              paddingRight: THUMB_SIZE,
+              padding: 10,
               zIndex: 2,
             }}
             onPress={this.onPressPlayPause}
@@ -251,7 +251,7 @@ export default class AudioSlider extends PureComponent {
                   },
                 ],
               }}
-              {...this._panResponder.panHandlers}
+              // {...this._panResponder.panHandlers}
             >
               <View
                 style={{
