@@ -1,28 +1,28 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const standardsStylesObject = {
-    backgroundColor: "#6C63FF",
-    borderColor: "grey",
-    color: "white",
-    borderRadius: 5,
-    borderWidth: 0.5,
-    fontSizeNormal: 17,
+  backgroundColor: "#6C63FF",
+  borderColor: "grey",
+  color: "white",
+  borderRadius: 5,
+  borderWidth: 0.5,
+  fontSizeNormal: 17,
 };
 
 const styles = StyleSheet.create({
-    StandardText: {
-        fontSize: standardsStylesObject.fontSizeNormal,
-        padding: 6,
-        color: standardsStylesObject.color
-    },
-    StandardContainer: {
-        borderRadius: standardsStylesObject.borderRadius,
-        borderWidth: standardsStylesObject.borderWidth,
-        borderColor: standardsStylesObject.borderColor,
-        backgroundColor: standardsStylesObject.backgroundColor,
-        marginLeft: 10,
-        marginRight: 10
-    },
+  StandardText: {
+    fontSize: standardsStylesObject.fontSizeNormal,
+    padding: 6,
+    color: standardsStylesObject.color,
+  },
+  StandardContainer: {
+    borderRadius: standardsStylesObject.borderRadius,
+    borderWidth: standardsStylesObject.borderWidth,
+    borderColor: standardsStylesObject.borderColor,
+    backgroundColor: standardsStylesObject.backgroundColor,
+    marginLeft: 10,
+    marginRight: 10,
+  },
 });
 
-export default styles
+export default styles;

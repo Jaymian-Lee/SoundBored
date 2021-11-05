@@ -8,6 +8,10 @@ import twayx from '../sounds/twayx.m4a';
 import wasteofprinjel from '../sounds/wasteofprinjel.m4a';
 import wasteofsus from '../sounds/wasteofsus.m4a';
 import whatsappsound from '../sounds/whatsappsound.m4a';
+import fourtyone from '../sounds/fourtyone.m4a'
+import beatbox from '../sounds/beatbox.m4a';
+import syskill from '../sounds/syskill.m4a';
+import dolphinlaugh from '../sounds/dolphinlaugh.m4a';
 
 export {
 	ballsyaw,
@@ -20,4 +24,8 @@ export {
 	wasteofprinjel,
 	wasteofsus,
 	whatsappsound,
+	fourtyone,
+	beatbox,
+	syskill,
+	dolphinlaugh,
 };
