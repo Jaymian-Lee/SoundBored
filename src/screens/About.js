@@ -1,12 +1,68 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+
+export default About = () => {
+
+
+  return (
+    <View style={styles.container}>
+      <Image style={styles.logo} source={require('../../assets/icon.png')}></Image>
+      <Text style={styles.header}>Settings</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+  },
+  logo: {
+    width: 190,
+    height: 190,
+    borderRadius: 16,
+    marginTop: 35,
+    alignSelf: 'center',
+  },
+  header: {
+    color: '#FFFFFF',
+    fontSize: 48,
+    fontWeight: 'bold',
+    marginBottom: '10%',
+    alignSelf: 'center',
+  },
+  text: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#6C63FF",
+    padding: "3%",
+    margin: 8,
+    width: 332,
+    borderRadius: 8,
+  },
+  copyright: {
+    position: 'absolute',
+    left: 0, 
+    right: 0, 
+    bottom: -105,
+    width: 256,
+    height: 256,
+    borderRadius: 16,
+    alignSelf: 'center',
+  },
+});
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default Settings = () => {
-
   const clearOnboarding = async () => {
     try {
       await AsyncStorage.removeItem("@viewedOnboarding");
