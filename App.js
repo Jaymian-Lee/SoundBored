@@ -120,18 +120,6 @@ export default App = () => {
     );
   }
 
-  
-  function AboutScreen() {
-    return (
-      <ReduxProvider store={store}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-          <About />
-        </View>
-      </ReduxProvider>
-    );
-  }
-
-
   const renderMain = () => (
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>

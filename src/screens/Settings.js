@@ -1,12 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-export default Settings = () => {
 
+export default Settings = () => {
   const clearOnboarding = async () => {
     try {
       await AsyncStorage.removeItem("@viewedOnboarding");
@@ -45,7 +43,7 @@ export default Settings = () => {
       <TouchableOpacity style={styles.button} onPress={console.log('Rate SoundBored')}>
         <Text style={styles.text}>Rate SoundBored</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={console.log("About")}>
+      <TouchableOpacity style={styles.button} onPress={console.log('About page')}>
         <Text style={styles.text}>About</Text>
       </TouchableOpacity>
       <Image style={styles.copyright} source={require('../../assets/images/copyright.png')}></Image>
