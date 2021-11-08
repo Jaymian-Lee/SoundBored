@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 
 
 export default Settings = () => {
@@ -13,21 +13,40 @@ export default Settings = () => {
     }
   };
 
+  const clearOnboardingAlert = () =>
+  Alert.alert(
+    "Reset onboarding",
+    "Cleared onboarding, restart SoundBored to see the onboarding!",
+    [
+      {
+        text: "Cancel",
+        style: "cancel"
+      },
+      { text: "Okay"}
+    ]
+  );
+
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require('../../assets/icon.png')}></Image>
       <Text style={styles.header}>Settings</Text>
-      <TouchableOpacity style={styles.button} onPress={clearOnboarding}>
+      <TouchableOpacity style={styles.button} onPress={clearOnboarding && clearOnboardingAlert}>
         <Text style={styles.text}>Clear onboarding</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={clearOnboarding}>
-        <Text style={styles.text}>Terms and Sevices</Text>
+      <TouchableOpacity style={styles.button} onPress={console.log('Terms and Services')}>
+        <Text style={styles.text}>Terms and Services</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={clearOnboarding}>
+      <TouchableOpacity style={styles.button} onPress={console.log('Share SoundBored')}>
+        <Text style={styles.text}>Share SoundBored</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={console.log('Rate SoundBored')}>
+        <Text style={styles.text}>Rate SoundBored</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={console.log('About page')}>
         <Text style={styles.text}>About</Text>
       </TouchableOpacity>
-      
-      <View style={styles.copyrightWrapper}><MaterialCommunityIcons  style={styles.copyright} name="copyright" size={26} /><Text style={styles.copyright} >Lee-Solutions | NahNova</Text></View>
+      <Image style={styles.copyright} source={require('../../assets/images/copyright.png')}></Image>
     </View>
   );
 };
@@ -41,34 +60,37 @@ const styles = StyleSheet.create({
     width: 190,
     height: 190,
     borderRadius: 16,
-    margin: 10,
+    marginTop: 35,
     alignSelf: 'center',
   },
   header: {
     color: '#FFFFFF',
-    fontSize: 68,
+    fontSize: 48,
     fontWeight: 'bold',
     marginBottom: '10%',
     alignSelf: 'center',
   },
   text: {
     color: "#FFFFFF",
-    fontSize: 36,
-
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   button: {
     alignItems: "center",
     backgroundColor: "#6C63FF",
     padding: "3%",
-    margin: 10,
-    width: 340,
-    borderRadius: 16,
-  },
-  copyrightWrapper: {
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
+    margin: 8,
+    width: 332,
+    borderRadius: 8,
   },
   copyright: {
-    color: '#FFFFFF',
+    position: 'absolute',
+    left: 0, 
+    right: 0, 
+    bottom: -105,
+    width: 256,
+    height: 256,
+    borderRadius: 16,
+    alignSelf: 'center',
   },
 });
