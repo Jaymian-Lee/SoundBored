@@ -14,7 +14,7 @@ export default HomeMeme = () => {
   const dispatch = useDispatch()
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.wrapper}>
       <View style={styles.cards}>
         {sounds.map((sound) => {
           const isSaved = savedSounds.includes(sound.id)
@@ -50,6 +50,10 @@ export default HomeMeme = () => {
 
 // NOTE: froggy spelen om dit nicer te maken
 const styles = StyleSheet.create({
+  wrapper: {
+    flexGrow: 0,
+    flexShrink: 0,
+  },
   cards: {
     display: "flex",
     flexDirection: "row",
