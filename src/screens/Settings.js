@@ -1,28 +1,28 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
+import { routes } from '../constants'
 
-
-export default Settings = () => {
+export default Settings = ({navigation}) => {
   const clearOnboarding = async () => {
     try {
-      await AsyncStorage.removeItem("@viewedOnboarding");
+      await AsyncStorage.removeItem('@viewedOnboarding');
     } catch (err) {
-      console.log("Error @clearOnboarding: ", err);
+      console.log('Error @clearOnboarding: ', err);
     }
   };
 
   const clearOnboardingAlert = () =>
   Alert.alert(
-    "Reset onboarding",
-    "Cleared onboarding, restart SoundBored to see the onboarding!",
+    'Reset onboarding',
+    'Cleared onboarding, restart SoundBored to see the onboarding!',
     [
       {
-        text: "Cancel",
-        style: "cancel"
+        text: 'Cancel',
+        style: 'cancel'
       },
-      { text: "Okay"}
+      { text: 'Okay'}
     ]
   );
 
@@ -34,7 +34,7 @@ export default Settings = () => {
       <TouchableOpacity style={styles.button} onPress={clearOnboarding && clearOnboardingAlert}>
         <Text style={styles.text}>Clear onboarding</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={console.log('Terms and Services')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.termsOfService)}>
         <Text style={styles.text}>Terms and Services</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={console.log('Share SoundBored')}>
@@ -43,8 +43,8 @@ export default Settings = () => {
       <TouchableOpacity style={styles.button} onPress={console.log('Rate SoundBored')}>
         <Text style={styles.text}>Rate SoundBored</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={console.log('About page')}>
-        <Text style={styles.text}>About</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.about)}>
+        <Text style={styles.text}>About </Text>
       </TouchableOpacity>
       <Image style={styles.copyright} source={require('../../assets/images/copyright.png')}></Image>
     </View>
@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
+    backgroundColor: '#222222',
+    alignItems: 'center',
   },
   logo: {
     width: 190,

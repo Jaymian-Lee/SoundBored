@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-import { store } from './src/store'
+import React, { useState, useEffect } from 'react'
+import { ActivityIndicator, View } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 
-import Onboarding from './src/components/Onboarding/Onboarding';
-import Settings from './src/screens/Settings';
-import HomeMeme from './src/screens/HomeMeme'
-import Bookmark from './src/screens/Bookmark'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { routes } from './src/constants'
+
+import { store } from './src/store'
+
+import Onboarding from './src/components/Onboarding/Onboarding'
+import Bookmarks from './src/screens/Bookmarks'
+import Home from './src/screens/Home'
+import Settings from './src/screens/Settings'
+import TermsOfService from './src/screens/TermsOfService'
+import About from './src/screens/About'
+
 
 const persistor = persistStore(store)
 
@@ -42,7 +47,7 @@ export default App = () => {
         setIsOnboarded(true);
       } else {
         setIsOnboarded(false)
-      }
+      }  
     } catch (err) {
       setIsOnboarded(false)
       console.log('Error @checkOnboarding: ', err);
@@ -73,7 +78,7 @@ export default App = () => {
     setIsOnboarded(true)
   }
 
-  const OnboardingStack = createNativeStackNavigator()
+  const OnboardingStack = createStackNavigator()
 
   const renderOnboarding = () => (
     <ReduxProvider store={store}>
@@ -89,36 +94,27 @@ export default App = () => {
     </ReduxProvider>
   )
 
-  function BookmarkScreen() {
+  const mainScreens = [
+    [routes.bookmarks, Bookmarks],
+    [routes.home, Home],
+    [routes.settings, Settings],
+    [routes.termsOfService, TermsOfService],
+    [routes.about, About],
+  ]
+
+  const getMainStackScreen = (Stack, rootRoute) => {
     return (
-      <ReduxProvider store={store}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-          <Bookmark />
-        </View>
-      </ReduxProvider>
-    );
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={rootRoute}>
+        {mainScreens.map(([name, Component]) => (
+          <Stack.Screen headerShown='false' name={name} key={name} component={Component}/>
+        ))}
+      </Stack.Navigator>
+    )
   }
 
-  function HomeScreen() {
-    return (
-      <ReduxProvider store={store}>
-        <View style={{ backgroundColor: '#202020' }}>
-          <HomeMeme />
-          <StatusBar style="auto" />
-        </View>
-      </ReduxProvider>
-    );
-  }
-
-  function SettingsScreen() {
-    return (
-      <ReduxProvider store={store}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#202020', }}>
-          <Settings />
-        </View>
-      </ReduxProvider>
-    );
-  }
+  const BookmarksStack = createStackNavigator()
+  const HomeStack = createStackNavigator()
+  const SettingsStack = createStackNavigator()
 
   const renderMain = () => (
     <ReduxProvider store={store}>
@@ -135,7 +131,7 @@ export default App = () => {
             >
             <Tab.Screen
               name="Bookmark"
-              component={BookmarkScreen}
+              component={() => getMainStackScreen(BookmarksStack, routes.bookmarks)}
               options={{
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons name="bookmark-multiple-outline" color={color} size={26} />
@@ -145,9 +141,8 @@ export default App = () => {
             />
             <Tab.Screen
               name="Home"
-              component={HomeScreen}
+              component={() => getMainStackScreen(HomeStack, routes.home)}
               options={{
-                
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons name="radiobox-marked" color={color} size={26} />
                 ),
@@ -156,7 +151,7 @@ export default App = () => {
             />
             <Tab.Screen
               name="Settings"
-              component={SettingsScreen}
+              component={() => getMainStackScreen(SettingsStack, routes.settings)}
               options={{
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons name="cog-outline" color={color} size={26} />

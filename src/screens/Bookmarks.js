@@ -1,37 +1,53 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image, Alert } from "react-native";
 
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AudioSlider from "../components/Audioplayer/Audioslider";
 import { useSelector, useDispatch } from "react-redux";
-import { save, unsave } from "../store/slices/soundSlice";
+import { unsave } from "../store/slices/soundSlice";
 import { getSoundAssetsFromSlug } from "../utils";
 
-export default HomeMeme = () => {
+export default Bookmarks = () => {
   const sounds = useSelector((state) => state.sound.sounds);
   const savedSounds = useSelector((state) => state.sound.savedSounds);
 
   const dispatch = useDispatch()
 
+  const handleUnsave = (id) => {
+    Alert.alert(
+      "Delete bookmark",
+      "Are you sure you want to delete this bookmark?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        {
+          text: "OK",
+          onPress: () => {
+            dispatch(unsave(id))
+          },
+          style: 'destructive'
+        }
+      ]
+    );
+  }
+
   return (
-    <ScrollView style={styles.wrapper}>
+    <View style={styles.container}>
+    <ScrollView>
       <View style={styles.cards}>
-        {sounds.map((sound) => {
-          const isSaved = savedSounds.includes(sound.id)
+        {savedSounds.map((id) => {
+          const sound = sounds.find((sound) => sound.id === id)
           const assets = getSoundAssetsFromSlug(sound.slug)
 
           return (
             <View key={sound.id} style={styles.card}>
               <MaterialCommunityIcons
-                onPress={() => dispatch(isSaved
-                  ? unsave(sound.id)
-                  : save(sound.id)
-                )}
+                onPress={() => handleUnsave(sound.id)}
                 style={styles.icon}
-                name={isSaved
-                  ? "bookmark-check"
-                  : "bookmark-plus-outline"
-                }
+                name={"bookmark-check"}
                 size={26}
               />
               <Image
@@ -45,14 +61,17 @@ export default HomeMeme = () => {
         })}
       </View>
     </ScrollView>
+    </View>
   );
 };
 
 // NOTE: froggy spelen om dit nicer te maken
 const styles = StyleSheet.create({
-  wrapper: {
-    flexGrow: 0,
-    flexShrink: 0,
+  container: {
+    display: 'flex',
+    flex: 1,
+    backgroundColor: '#222222',
+    alignItems: 'center',
   },
   cards: {
     display: "flex",

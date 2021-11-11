@@ -1,52 +1,38 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image, Alert } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AudioSlider from "../components/Audioplayer/Audioslider";
 import { useSelector, useDispatch } from "react-redux";
-import { unsave } from "../store/slices/soundSlice";
+import { save, unsave } from "../store/slices/soundSlice";
 import { getSoundAssetsFromSlug } from "../utils";
 
-export default Bookmark = () => {
+export default Home = () => {
   const sounds = useSelector((state) => state.sound.sounds);
   const savedSounds = useSelector((state) => state.sound.savedSounds);
 
   const dispatch = useDispatch()
 
-  const handleUnsave = (id) => {
-    Alert.alert(
-      "Delete bookmark",
-      "Are you sure you want to delete this bookmark?",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        {
-          text: "OK",
-          onPress: () => {
-            dispatch(unsave(id))
-          },
-          style: 'destructive'
-        }
-      ]
-    );
-  }
-
   return (
-    <ScrollView>
+    <View style={styles.container}>
+    <ScrollView style={styles.wrapper}>
       <View style={styles.cards}>
-        {savedSounds.map((id) => {
-          const sound = sounds.find((sound) => sound.id === id)
+        {sounds.map((sound) => {
+          const isSaved = savedSounds.includes(sound.id)
           const assets = getSoundAssetsFromSlug(sound.slug)
 
           return (
             <View key={sound.id} style={styles.card}>
               <MaterialCommunityIcons
-                onPress={() => handleUnsave(sound.id)}
+                onPress={() => dispatch(isSaved
+                  ? unsave(sound.id)
+                  : save(sound.id)
+                )}
                 style={styles.icon}
-                name={"bookmark-check"}
+                name={isSaved
+                  ? "bookmark-check"
+                  : "bookmark-plus-outline"
+                }
                 size={26}
               />
               <Image
@@ -60,11 +46,21 @@ export default Bookmark = () => {
         })}
       </View>
     </ScrollView>
+    </View>
   );
 };
 
 // NOTE: froggy spelen om dit nicer te maken
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flex: 1,
+    backgroundColor: '#222222',
+  },
+  wrapper: {
+    flexGrow: 0,
+    flexShrink: 0,
+  },
   cards: {
     display: "flex",
     flexDirection: "row",
