@@ -20,9 +20,10 @@ export default Settings = ({navigation}) => {
     [
       {
         text: 'Cancel',
-        style: 'cancel'
+        style: 'cancel',
       },
-      { text: 'Okay'}
+      { text: 'Okay',}
+      
     ]
   );
 
@@ -31,11 +32,9 @@ export default Settings = ({navigation}) => {
     <View style={styles.container}>
       <Image style={styles.logo} source={require('../../assets/icon.png')}></Image>
       <Text style={styles.header}>Settings</Text>
-      <TouchableOpacity style={styles.button} onPress={clearOnboarding && clearOnboardingAlert}>
+      <View style={styles.settingsContainer}>
+      <TouchableOpacity style={styles.button} onPress={() => {clearOnboardingAlert(); clearOnboarding()}}>
         <Text style={styles.text}>Clear onboarding</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.termsOfService)}>
-        <Text style={styles.text}>Terms and Services</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={console.log('Share SoundBored')}>
         <Text style={styles.text}>Share SoundBored</Text>
@@ -44,8 +43,9 @@ export default Settings = ({navigation}) => {
         <Text style={styles.text}>Rate SoundBored</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.about)}>
-        <Text style={styles.text}>About </Text>
+        <Text style={styles.text}>About us</Text>
       </TouchableOpacity>
+      </View>
       <Image style={styles.copyright} source={require('../../assets/images/copyright.png')}></Image>
     </View>
   );
@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#222222',
     alignItems: 'center',
+  },
+  settingsContainer: {
+    marginTop: '10%',
   },
   logo: {
     width: 190,
