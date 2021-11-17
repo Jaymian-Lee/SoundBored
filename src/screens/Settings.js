@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, Linking, Share } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { routes } from '../constants'
@@ -12,6 +12,16 @@ export default Settings = ({navigation}) => {
       console.log('Error @clearOnboarding: ', err);
     }
   };
+
+
+  const shareSoundBored = () => 
+  Share.share(
+    {
+    title: 'Share SoundBored',
+    message: 'Download our new app and enjoy all the sounds!',
+    url: 'https://play.google.com/store/apps/details?id=com.nahnova.SoundBored',
+    }
+  );
 
   const clearOnboardingAlert = () =>
   Alert.alert(
@@ -36,10 +46,10 @@ export default Settings = ({navigation}) => {
       <TouchableOpacity style={styles.button} onPress={() => {clearOnboardingAlert(); clearOnboarding()}}>
         <Text style={styles.text}>Clear onboarding</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={console.log('Share SoundBored')}>
+      <TouchableOpacity style={styles.button} onPress={shareSoundBored}>
         <Text style={styles.text}>Share SoundBored</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={console.log('Rate SoundBored')}>
+      <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.nahnova.SoundBored')}>
         <Text style={styles.text}>Rate SoundBored</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.about)}>

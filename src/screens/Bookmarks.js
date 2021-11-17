@@ -34,35 +34,50 @@ export default Bookmarks = () => {
     );
   }
 
-  return (
+  if (savedSounds == "") {
+   return ( 
     <View style={styles.container}>
-    <ScrollView>
-      <View style={styles.cards}>
-        {savedSounds.map((id) => {
-          const sound = sounds.find((sound) => sound.id === id)
-          const assets = getSoundAssetsFromSlug(sound.slug)
-
-          return (
-            <View key={sound.id} style={styles.card}>
-              <MaterialCommunityIcons
-                onPress={() => handleUnsave(sound.id)}
-                style={styles.icon}
-                name={"bookmark-check"}
-                size={26}
-              />
-              <Image
-                source={assets.image}
-                style={styles.images}
-              />
-              <Text style={styles.text}>{sound.title}</Text>
-              <AudioSlider audio={assets.sound} />
-            </View>
-          )
-        })}
-      </View>
-    </ScrollView>
+      <Text style={styles.noSavedSounds}>It seems that there are no saved sounds, you can save sounds by clicking the plus icon</Text>
+      <MaterialCommunityIcons
+                  style={styles.iconNotSaved}
+                  name={"bookmark-plus-outline"}
+                  size={26}
+                />
     </View>
-  );
+   );
+  } else {
+    return (
+      <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.cards}>
+          {savedSounds.map((id) => {
+            const sound = sounds.find((sound) => sound.id === id)
+            const assets = getSoundAssetsFromSlug(sound.slug)
+  
+            return (
+              <View key={sound.id} style={styles.card}>
+                <MaterialCommunityIcons
+                  onPress={() => handleUnsave(sound.id)}
+                  style={styles.icon}
+                  name={"bookmark-check"}
+                  size={26}
+                />
+                <Image
+                  source={assets.image}
+                  style={styles.images}
+                />
+                <Text style={styles.text}>{sound.title}</Text>
+                <AudioSlider audio={assets.sound} />
+              </View>
+            )
+          })}
+        </View>
+      </ScrollView>
+      </View>
+    );
+  }
+
+  
 };
 
 // NOTE: froggy spelen om dit nicer te maken
@@ -87,6 +102,12 @@ const styles = StyleSheet.create({
     flex: 0,
     borderRadius: 16,
   },
+  noSavedSounds: {
+    color: "#fff",
+    textAlign: "center",
+    marginTop: '85%',
+    fontSize: 16,
+  },
   text: {
     color: "#fff",
     textAlign: "center",
@@ -104,6 +125,13 @@ const styles = StyleSheet.create({
     display: "flex",
     color: "#FFFFFF",
     alignSelf: "flex-end",
+    marginTop: "2%",
+    marginRight: "2%",
+  },
+  iconNotSaved:{
+    display: "flex",
+    color: "#FFFFFF",
+    alignSelf: "center",
     marginTop: "2%",
     marginRight: "2%",
   },
