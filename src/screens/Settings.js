@@ -18,7 +18,7 @@ export default Settings = ({navigation}) => {
   Share.share(
     {
     title: 'Share SoundBored',
-    message: 'Download our new app and enjoy all the sounds!',
+    message: 'Download our new app SoundBored and enjoy all the sounds! Click the link to go to the SoundBored download page. https://play.google.com/store/apps/details?id=com.nahnova.SoundBored',
     url: 'https://play.google.com/store/apps/details?id=com.nahnova.SoundBored',
     }
   );
@@ -29,8 +29,7 @@ export default Settings = ({navigation}) => {
     'Cleared onboarding, restart SoundBored to see the onboarding!',
     [
       {
-        text: 'Cancel',
-        style: 'cancel',
+        
       },
       { text: 'Okay',}
       

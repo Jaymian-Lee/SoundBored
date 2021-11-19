@@ -6,6 +6,7 @@ import AudioSlider from "../components/Audioplayer/Audioslider";
 import { useSelector, useDispatch } from "react-redux";
 import { unsave } from "../store/slices/soundSlice";
 import { getSoundAssetsFromSlug } from "../utils";
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 export default Bookmarks = () => {
   const sounds = useSelector((state) => state.sound.sounds);
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
   card: {
     margin: "1%",
     backgroundColor: "#6C63FF",
-    width: "48%",
+    width: vw(48),
     flex: 0,
     borderRadius: 16,
   },

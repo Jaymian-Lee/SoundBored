@@ -35,13 +35,13 @@ export default About = () => {
       <Text style={styles.header}>SOCIALS</Text>
       <View style={styles.socialWrapper}>
       <View style={styles.socialWrapperLee}>
-      <Image style={styles.socialLogo} source={require('../../assets/images/jaymian.png')}></Image>
+      <Image style={styles.socialLogo} source={require('../../assets/images/lee.png')}></Image>
       <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('https://linktr.ee/JaymianLee')}>
       <Text style={styles.text}>Lee-Solutions Socials</Text>
       </TouchableOpacity>
       </View>
       <View style={styles.socialWrapperLee}>
-      <Image style={styles.socialLogo} source={require('../../assets/images/nahnovablack.png')}></Image> 
+      <Image style={styles.socialLogo} source={require('../../assets/images/nahnova.png')}></Image> 
       <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('https://linktr.ee/nah_nova')}>
         <Text style={styles.text}>NahNova Socials</Text>
       </TouchableOpacity>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   socialWrapperLee: {
-    backgroundColor: '#E8E8E8',
+    backgroundColor: '#434343',
     borderRadius: 16,
     margin: 16,
   },
