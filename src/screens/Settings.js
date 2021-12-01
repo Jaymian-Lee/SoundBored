@@ -25,13 +25,28 @@ export default Settings = ({navigation}) => {
 
   const clearOnboardingAlert = () =>
   Alert.alert(
-    'Reset onboarding',
-    'Cleared onboarding, restart SoundBored to see the onboarding!',
+    'Reset SoundBored',
+    'Are you sure to reset the app, all the bookmarked sounds will be deleted and SoundBored will reset! Restart the app to ',
+    [
+      {
+        text: 'No',
+        
+        style: 'cancel'
+      },
+      { text: 'Yes', onPress: () => finalResetAlert()}
+      
+    ]
+  );
+
+  const finalResetAlert = () =>
+  Alert.alert(
+    'Reset SoundBored',
+    'Restart the app to see the changes!',
     [
       {
         
       },
-      { text: 'Okay',}
+      { text: 'Okay!', onPress: () => AsyncStorage.clear()}
       
     ]
   );
@@ -42,8 +57,8 @@ export default Settings = ({navigation}) => {
       <Image style={styles.logo} source={require('../../assets/icon.png')}></Image>
       <Text style={styles.header}>Settings</Text>
       <View style={styles.settingsContainer}>
-      <TouchableOpacity style={styles.button} onPress={() => {clearOnboardingAlert(); clearOnboarding()}}>
-        <Text style={styles.text}>Clear onboarding</Text>
+      <TouchableOpacity style={styles.button} onPress={() => {clearOnboardingAlert();}}>
+        <Text style={styles.text}>Reset SoundBored</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={shareSoundBored}>
         <Text style={styles.text}>Share SoundBored</Text>

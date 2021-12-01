@@ -64,9 +64,110 @@ export const localSoundDatabase = [
         title: "Fourtyone",
         slug: 'fourtyone'
     },
-    {
+     {
         id: "271d8521-b180-47b0-8b5b-20ad54b53954",
         title: "BEATBOX",
         slug: 'beatbox'
+    },
+    {
+        id: "2add00f1-6e68-4a4e-bb1b-22b0d5f0c4c4",
+        title: "BITCH",
+        slug: 'bitch'
+    },
+    {
+        id: "74f449ee-89ed-4090-bb07-ea50c7185e6d",
+        title: "BOOK",
+        slug: 'book'
+    },
+    {
+        id: "0d751477-2a7b-4af3-85b5-c161840c89c5",
+        title: "CHICKEN",
+        slug: 'chicken'
+    },
+    {
+        id: "789eabfd-82e7-45a1-8707-37cf39e0887d",
+        title: "CHILD",
+        slug: 'child'
+    },
+    {
+        id: "42c5fda3-b36b-4e11-b595-7bf0e75f737b",
+        title: "CROISSANT",
+        slug: 'croissant'
+    },
+    {
+        id: "ad398a62-b279-4b5b-b0b3-d73023b070e8",
+        title: "DISHES",
+        slug: 'dishes'
+    },
+    {
+        id: "f9d99ef8-09ea-497c-a6e5-7a2605644221",
+        title: "DRAMA",
+        slug: 'drama'
+    },
+    {
+        id: "5c19355f-47d7-409b-b5ff-a007f8944f48",
+        title: "FRESHAVOCADO",
+        slug: 'freshavocado'
+    },
+    {
+        id: "c7e577ce-a4a9-4a0d-ae08-07990cfbf710",
+        title: "GOODP",
+        slug: 'goodp'
+    },
+    {
+        id: "b9cf77d4-66f4-4dcf-b796-46d6ec8833ae",
+        title: "HURRICANE",
+        slug: 'hurricane'
+    },
+    {
+        id: "33c5789f-d623-4687-bed7-a56fb9214fc3",
+        title: "ILIKETHATLAUGH",
+        slug: 'ilikethatlaugh'
+    },
+
+    {
+        id: "84b1bf0f-4330-40a4-ad63-83ea87d06b12",
+        title: "LEGITNESS",
+        slug: 'legitness'
+    },
+    {
+        id: "a9ba954b-d0c4-45ad-a9ab-cd47ae62a70a",
+        title: "OKAYLETSGO",
+        slug: 'okayletsgo'
+    },
+    {
+        id: "53f4c7e3-26b9-4bd8-a2f4-85f0620b7169",
+        title: "PAPER",
+        slug: 'paper'
+    },
+    {
+        id: "eb638448-a541-4541-9fcb-fc68570334a3",
+        title: "ROADWORK",
+        slug: 'roadwork'
+    },
+     {
+        id: "19464a4e-7ca9-4f59-9e84-94468ca294b4",
+        title: "WATERMELONE",
+        slug: 'watermelone'
+    },
+     {
+        id: "3f46e82a-9ae1-40ea-ad07-a20cce81ff8a",
+        title: "WHATARETHOSE",
+        slug: 'whatarethose'
+    },
+    {
+        id: "ad234b4e-4c9c-4357-8e76-874f156feeac",
+        title: "YEET",
+        slug: 'yeet'
+    },
+    {
+        id: "597cdc03-2ca1-483b-9278-c30172fbd6b9",
+        title: "Robobitch",
+        slug: 'robobitch'
+    },
+    {
+        id: "f586b1f4-02cb-451d-88a8-975bd41eb3e2",
+        title: "Tyler1",
+        slug: 'tyler1'
     },
 ]

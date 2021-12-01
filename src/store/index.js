@@ -12,7 +12,7 @@ import {
 import { slice as soundSlice } from './slices/soundSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-// AsyncStorage.clear()
+ // AsyncStorage.clear()
 
 const reducers = combineReducers({
   sound: soundSlice.reducer
